@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage with Options</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div class="container">
+        <h1 id="main-heading">Welcome to My Website</h1>
+
+        <div class="options-menu" id="optionsMenu">
+            <button class="option-button" data-form="contact">Contact Form</button>
+            <button class="option-button" data-form="todo">To-Do List</button>
+        </div>
+
+        <div id="contactFormSection" class="form-section hidden">
+            <h2>Contact Us</h2>
+            <form id="contactForm" class="app-form">
+                <div class="form-group">
+                    <label for="contactName">Name:</label>
+                    <input type="text" id="contactName" name="contactName" required>
+                    <span class="error-message" id="contactNameError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="contactEmail">Email:</label>
+                    <input type="email" id="contactEmail" name="contactEmail" required>
+                    <span class="error-message" id="contactEmailError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="contactSubject">Subject:</label>
+                    <input type="text" id="contactSubject" name="contactSubject" required>
+                    <span class="error-message" id="contactSubjectError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="contactMessage">Message:</label>
+                    <textarea id="contactMessage" name="contactMessage" rows="5" required></textarea>
+                    <span class="error-message" id="contactMessageError"></span>
+                </div>
+                <button type="submit">Submit Contact</button>
+                <button type="button" class="back-button">Back to Home</button>
+            </form>
+        </div>
+
+        <div id="todoFormSection" class="form-section hidden">
+            <h2>My To-Do List</h2>
+            <div class="todo-input-group">
+                <input type="text" id="todoInput" placeholder="Add a new task..." required>
+                <button id="addTodoButton">Add Task</button>
+            </div>
+            <span class="error-message" id="todoInputError"></span>
+            <ul id="todoList">
+                </ul>
+            <button type="button" class="back-button">Back to Home</button>
+        </div>
+    </div>
+
+    <div id="reminderPopup" class="popup hidden">
+        <div class="popup-content">
+            <span class="close-button">&times;</span>
+            <p id="reminderText"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

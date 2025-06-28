@@ -1,0 +1,478 @@
+/* --- Google Font Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* --- General Body and Container Styles --- */
+body {
+    font-family: 'Roboto', sans-serif; /* A clean, highly readable sans-serif font */
+    background: linear-gradient(135deg, #f0f4f8, #d9e2ec); /* Soft, subtle cool-toned gradient */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align content to the top */
+    min-height: 100vh;
+    margin: 0;
+    padding: 50px 25px; /* Generous padding for breathing room */
+    box-sizing: border-box;
+    color: #333;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    line-height: 1.6; /* Improved readability */
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 45px;
+    border-radius: 12px; /* Slightly less rounded than before, for a crisp look */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Subtle, elegant shadow */
+    width: 100%;
+    max-width: 700px; /* Wider container for better content flow */
+    text-align: center;
+    transition: all 0.5s ease-in-out;
+    position: relative;
+    overflow: hidden; /* Keep content contained during transitions */
+    border: 1px solid #e0e6ed; /* Light border for definition */
+}
+
+/* --- Headings --- */
+h1 {
+    font-family: 'Montserrat', sans-serif; /* A more distinct font for main headings */
+    color: #2c3e50;
+    margin-bottom: 40px;
+    font-size: 3em; /* Larger and more impactful */
+    font-weight: 700;
+    letter-spacing: -0.8px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.05); /* Very subtle text shadow */
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: #34495e;
+    margin-bottom: 35px;
+    font-size: 2.5em; /* Prominent sub-headings */
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 12px;
+    line-height: 1.2;
+}
+
+h2::after { /* Stylish underline for H2 */
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px; /* Longer underline */
+    height: 5px;
+    background-color: #4a90e2; /* A professional blue */
+    border-radius: 3px;
+}
+
+/* --- Options Menu --- */
+.options-menu {
+    display: flex;
+    justify-content: center;
+    gap: 35px; /* More space between buttons */
+    margin-top: 50px;
+    flex-wrap: wrap;
+}
+
+.option-button {
+    background: linear-gradient(45deg, #4a90e2, #2d70bb); /* Professional blue gradient */
+    color: white;
+    padding: 18px 40px; /* Generous padding */
+    border: none;
+    border-radius: 8px; /* Moderately rounded corners */
+    cursor: pointer;
+    font-size: 1.2em; /* Readable font size */
+    font-weight: 600;
+    transition: all 0.3s ease-in-out; /* Smooth transition */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Defined shadow */
+    position: relative;
+    overflow: hidden;
+    min-width: 220px; /* Consistent width */
+    letter-spacing: 0.5px;
+    text-transform: uppercase; /* Subtle uppercase for professionalism */
+}
+
+.option-button:hover {
+    background: linear-gradient(45deg, #2d70bb, #1a4d80); /* Darker blue on hover */
+    transform: translateY(-4px) scale(1.02); /* Slight lift and scale */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.option-button::after { /* Subtle light overlay on hover */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: skewX(-30deg); /* Angled wipe effect */
+    transition: all 0.4s ease;
+}
+
+.option-button:hover::after {
+    left: 120%;
+}
+
+/* --- Form Sections --- */
+.form-section {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid #e0e6ed; /* Match container border */
+    text-align: left;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.form-section:not(.hidden) {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.app-form .form-group {
+    margin-bottom: 25px;
+}
+
+.app-form label {
+    display: block;
+    margin-bottom: 10px;
+    color: #444;
+    font-weight: 500; /* Slightly lighter weight than before, for balance */
+    font-size: 1.05em;
+}
+
+.app-form input[type="text"],
+.app-form input[type="email"],
+.app-form textarea {
+    width: calc(100% - 28px);
+    padding: 14px;
+    border: 1px solid #c9d6df; /* Softer input border */
+    border-radius: 6px; /* Less rounded for a modern look */
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fcfdfe;
+}
+
+.app-form input[type="text"]:focus,
+.app-form input[type="email"]:focus,
+.app-form textarea:focus,
+#todoInput:focus {
+    border-color: #4a90e2; /* Matching the main blue theme */
+    outline: none;
+    box-shadow: 0 0 10px rgba(74, 144, 226, 0.2); /* Blue focus shadow */
+    background-color: #fff;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* --- Form Buttons --- */
+.app-form button[type="submit"],
+#addTodoButton {
+    background: linear-gradient(45deg, #5cb85c, #4cae4c); /* A vibrant, reassuring green */
+    color: white;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    width: auto;
+    box-shadow: 0 4px 12px rgba(92, 184, 92, 0.25);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.app-form button[type="submit"]:hover,
+#addTodoButton:hover {
+    background: linear-gradient(45deg, #4cae4c, #449d44);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(92, 184, 92, 0.35);
+}
+
+.back-button {
+    background-color: #6c757d; /* Consistent muted grey */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 20px;
+    margin-left: 15px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.back-button:hover {
+    background-color: #5a6268;
+    transform: translateY(-1px);
+}
+
+/* --- To-Do List Specific Styles --- */
+.todo-input-group {
+    display: flex;
+    margin-bottom: 25px;
+    gap: 15px;
+    align-items: center;
+}
+
+#todoInput {
+    flex-grow: 1;
+    padding: 14px;
+    border: 1px solid #c9d6df;
+    border-radius: 6px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+#addTodoButton {
+    white-space: nowrap;
+}
+
+#todoList {
+    list-style: none;
+    padding: 0;
+    margin-top: 25px;
+}
+
+#todoList li {
+    background-color: #fdfdfd; /* Very light background for list items */
+    border: 1px solid #e0e6ed;
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+}
+
+#todoList li:hover {
+    background-color: #eaf1f8; /* Light blue on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+#todoList li.completed {
+    text-decoration: line-through;
+    color: #888;
+    background-color: #f7f9fc; /* Lighter background for completed */
+    opacity: 0.8;
+}
+
+#todoList li button {
+    background-color: #dc3545; /* Standard red for delete */
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#todoList li button:hover {
+    background-color: #c82333;
+    transform: translateY(-1px);
+}
+
+/* --- Reminder Popup --- */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Slightly lighter overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(8px); /* More blur for focus */
+    -webkit-backdrop-filter: blur(8px); /* For Safari support */
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+    max-width: 480px; /* Good size for message */
+    width: 90%;
+    animation: fadeInScale 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; /* Smoother animation */
+    border: 2px solid #4a90e2; /* Blue border for popup */
+    box-sizing: border-box;
+}
+
+.popup-content p {
+    font-size: 1.5em; /* Larger and clearer message */
+    color: #333;
+    margin-bottom: 0;
+    font-weight: 500;
+    word-wrap: break-word; /* Ensure text wraps if too long */
+}
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 34px; /* Larger close button */
+    cursor: pointer;
+    color: #999;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.close-button:hover {
+    color: #555;
+    transform: rotate(90deg) scale(1.1); /* More pronounced rotate and scale */
+}
+
+/* --- Utility classes --- */
+.hidden {
+    display: none !important;
+}
+
+.error-message {
+    color: #e74c3c; /* A distinct red for errors */
+    font-size: 0.9em;
+    margin-top: 6px;
+    display: block;
+    text-align: left;
+    font-weight: 500;
+}
+
+.app-form input.invalid,
+.app-form textarea.invalid,
+#todoInput.invalid {
+    border-color: #e74c3c; /* Error red border */
+    box-shadow: 0 0 8px rgba(231, 76, 60, 0.25);
+}
+
+/* --- Animations --- */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    body {
+        padding: 30px 15px;
+    }
+    .container {
+        padding: 30px;
+        margin: 15px;
+        max-width: 95%;
+    }
+    h1 {
+        font-size: 2.5em;
+        margin-bottom: 30px;
+    }
+    h2 {
+        font-size: 2em;
+        margin-bottom: 25px;
+    }
+    .option-button {
+        padding: 16px 30px;
+        font-size: 1.1em;
+        min-width: unset;
+        width: 100%; /* Full width for mobile options */
+    }
+    .options-menu {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .app-form input,
+    .app-form textarea {
+        width: 100%;
+        padding: 12px;
+        font-size: 0.95em;
+    }
+    .app-form button[type="submit"],
+    #addTodoButton,
+    .back-button {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 15px;
+    }
+    .todo-input-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .popup-content {
+        padding: 30px;
+    }
+    .popup-content p {
+        font-size: 1.3em;
+    }
+    .close-button {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 20px 10px;
+    }
+    .container {
+        padding: 25px;
+        border-radius: 8px;
+    }
+    h1 {
+        font-size: 2em;
+        margin-bottom: 25px;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    .option-button {
+        padding: 14px 25px;
+        font-size: 1em;
+    }
+    .app-form label {
+        font-size: 0.95em;
+    }
+    .app-form input,
+    .app-form textarea {
+        font-size: 0.9em;
+        padding: 10px;
+    }
+    #todoList li {
+        font-size: 1em;
+        padding: 12px 15px;
+    }
+    #todoList li button {
+        padding: 6px 10px;
+        font-size: 0.8em;
+    }
+    .popup-content p {
+        font-size: 1.1em;
+    }
+    .close-button {
+        font-size: 26px;
+        top: 10px;
+        right: 15px;
+    }
+}
